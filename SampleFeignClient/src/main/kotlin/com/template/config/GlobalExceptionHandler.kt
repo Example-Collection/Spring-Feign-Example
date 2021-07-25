@@ -1,6 +1,5 @@
 package com.template.config
 
-import com.template.auth.exception.AuthenticateException
 import com.template.common.dto.ErrorResponseDto
 import com.template.common.exception.ApiException
 import com.template.common.tools.DateConverter
@@ -25,9 +24,6 @@ class GlobalExceptionHandler : ResponseEntityExceptionHandler() {
             is ApiException -> {
                 handleExceptionInternal(exception, null, HttpHeaders(), exception.httpStatus, request)
             }
-            is AuthenticateException -> {
-                handleExceptionInternal(exception, null, HttpHeaders(), HttpStatus.UNAUTHORIZED, request)
-            }
             else -> handleExceptionInternal(exception, null, HttpHeaders(), HttpStatus.INTERNAL_SERVER_ERROR, request)
         }
     }
@@ -39,7 +35,7 @@ class GlobalExceptionHandler : ResponseEntityExceptionHandler() {
         request: WebRequest
     ): ResponseEntity<Any> {
         val servletWebRequest = request as ServletWebRequest
-        val errorResponseDto = ErrorResponseDto(DateConverter.convertDateWithTime(LocalDateTime.now()), status.value(), status.reasonPhrase, ex.bindingResult.fieldErrors[0].defaultMessage, servletWebRequest.request.requestURI, servletWebRequest.request.remoteAddr)
+        val errorResponseDto = ErrorResponseDto(DateConverter.convertDateWithTime(LocalDateTime.now()), status.value(), status.reasonPhrase, ex.bindingResult.fieldErrors[0].defaultMessage!!, servletWebRequest.request.requestURI, servletWebRequest.request.remoteAddr)
         return ResponseEntity(errorResponseDto, headers, status)
     }
 

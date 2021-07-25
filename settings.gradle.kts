@@ -1,3 +1,5 @@
-
-rootProject.name = "spring-boot-template"
-
+rootProject.name = "Spring-Feign-Example"
+include(
+    "SampleServer",
+    "SampleFeignClient"
+)
