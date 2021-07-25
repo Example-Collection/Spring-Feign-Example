@@ -67,6 +67,6 @@ subprojects {
 
 project(":SampleFeignClient") {
     dependencies {
-        implementation("org.springframework.cloud:spring-cloud-starter-openfeign")
+        implementation("org.springframework.cloud:spring-cloud-starter-openfeign:3.0.3")
     }
 }
