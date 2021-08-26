@@ -13,4 +13,4 @@
 
 <h3>개발하며 정리한 글</h3>
 
-- <a href="https://github.com/sang-w0o/Study/blob/master/Spring/MSA/Feign%20%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0.md">링크</a>
+- <a href="https://github.com/sang-w0o/Study/blob/master/Backend%20Frameworks/Spring/MSA/Feign%20%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0.md">링크</a>
